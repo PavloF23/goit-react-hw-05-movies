@@ -1,37 +1,29 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "path/to/pages/Home";
-import About from "path/to/pages/About";
-import Products from "path/to/pages/Products";
-import NotFound from "path/to/pages/NotFound";
-import ProductDetails from "path/to/pages/ProductDetails";
+import { lazy } from 'react';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AppStyle } from "./App.styled";
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+// const MovieDetails = lazy(() => import('../pages/MovieDetails/'));
+// const Cast = lazy(() => import('./components/Cast'));
+// const Reviews = lazy(() => import('./components/Reviews'));
 
 export const App = () => {
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/products">Products</Link>
-      </nav>
+      <AppStyle />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:productId" element={<ProductDetails />} />
-        <Route path="*" element={<NotFound />} />
-          <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          {/* <Route path="movies/:movieId" element={<MovieDetails />}> */}
+            {/* <Route path="cast" element={<Cast />} /> */}
+            {/* <Route path="reviews" element={<Reviews />} /> */}
+          {/* </Route> */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
     </div>
-        </Routes>
-      </div>
-    );
-  };
+  );
+};
