@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { FormStyle, Input, Button } from ".SearchMovies/SearchMovies.styled";
+import { FormStyle, Input, Button } from "./SearchMovies.styled";
 
 
 export const SearchMovies = ({ onSubmit }) => {
