@@ -23,7 +23,7 @@ export function getActors(movieId) {
     return response;
 };
 
-export function getAxiosReviews(movieId) {
+export function getReviews(movieId) {
     const response = await axios.get(`${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`);
     return response;
 };
