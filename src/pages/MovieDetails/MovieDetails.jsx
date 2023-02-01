@@ -3,7 +3,7 @@ import { useState, Suspense } from "react";
 import { useMount } from 'react-use';
 import { AiFillCaretLeft } from "react-icons/ai";
 import { Main, ButtonBack, FilmInfo, Title, Description, List, LinkBtn } from './MovieDetails.styled'
-import { getAxiosID } from "../Api/getAxios";
+import { getMoviesID } from "../Api/getAxios";
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -17,7 +17,7 @@ export const MovieDetails = () => {
   useMount(() => {
     async function getFilm() {
       try {
-        const filmInfo = await getAxiosID(movieId)
+        const filmInfo = await getMoviesID(movieId)
         const genres = []
         filmInfo.data.genres.map(genre => genres.push(' ' + genre.name))
         
