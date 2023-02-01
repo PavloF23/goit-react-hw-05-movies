@@ -1,11 +1,10 @@
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import PropTypes from 'prop-types';
+import { FormStyle, Input, Button } from ".SearchMovies/SearchMovies.styled";
 
-import { FormStyle, Input, Button } from "./SearchMovies.styled";
 
-
-const Form = ({ onSubmit }) => {
+export const SearchMovies = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
 
     const handlChange = (evt) => {
@@ -46,5 +45,3 @@ const Form = ({ onSubmit }) => {
 Form.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 }
-
-export default Form;
