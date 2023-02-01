@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useMount } from 'react-use';
 import { getReviews } from "../servisApi";
-import Loader from './Loader'
-import { Autor } from './Reviews.styled'
+import Loader from '../Loader';
+import { Autor } from './Reviews.styled';
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -43,7 +43,7 @@ export const Reviews = () => {
       {filmReviews.length !== 0 &&<ul>
         {filmReviews.map((review) => (
         <li key={review.id}>
-          <Autor>Autor: {review.author}</Avtor>
+          <Autor>Autor: {review.author}</Autor>
           <p>{review.content}</p>
         </li>
       ))}</ul>}

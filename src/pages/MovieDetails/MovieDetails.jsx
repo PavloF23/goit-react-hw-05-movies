@@ -3,7 +3,7 @@ import { useState, Suspense } from "react";
 import { useMount } from 'react-use';
 import { AiFillCaretLeft } from "react-icons/ai";
 import { Main, ButtonBack, FilmInfo, Title, Description, List, LinkBtn } from './MovieDetails.styled'
-import { getMoviesID } from "../../component/servisApi";
+import { getMoviesID } from "../../components/servisApi";
 
 export const MovieDetails = () => {
   const { movieId } = useParams();

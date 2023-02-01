@@ -8,19 +8,19 @@ export const MovieList = ({ items }) => {
 
   return (
     <List>
-      {items.map(({ id, poster_path, title }) => (
-        <ListItem key={id}>
-          <Item to={`/movies/${id}`} state={{ from: location }}>
+      {items.map((item) => (
+        <ListItem key={item.id}>
+          <Item to={`/movies/${item.id}`} state={{ from: location }}>
             <Poster
               src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                item.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
                   : defaultPicture
               }
-              alt={title}
+              alt={item.title}
             />
             <MovieInfo>
-              <p>{title}</p>
+              <p>{item.title}</p>
             </MovieInfo>
           </Item>
         </ListItem>

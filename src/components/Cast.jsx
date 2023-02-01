@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useMount } from 'react-use';
-import { getAxiosActors } from "../Api/getAxios";
-import SharedLoader from './SharedLoader/SharedLoader';
+import { getActors } from "./servisApi";
+import Loader from './Loader';
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -34,6 +34,7 @@ export const Cast = () => {
     setIsLoadings(true)
     getFilm()      
   })
+
   return (
     <section>
       {isLoading && <Loader />}
