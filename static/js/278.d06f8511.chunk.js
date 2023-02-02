@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[278],{278:function(e,t,n){n.r(t),n.d(t,{Movies:function(){return c}});var r=n(184),c=function(){return(0,r.jsx)("main",{children:(0,r.jsx)("div",{style:{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center",fontSize:40,color:"#010101"},children:"React homework template"})})}}}]);
-//# sourceMappingURL=278.d06f8511.chunk.js.map
