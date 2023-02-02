@@ -51,37 +51,31 @@
 
 import { useState } from "react";
 import { useMount } from 'react-use';
-
 import {  getTrendingMovies } from "../../components/servisApi";
 import { MovieList }  from "../../components/MovieList/MovieList";
 
-const Home = () => {
+
+export const Home = () => {
   const [films, setFilms] = useState([]);
 
   useMount(() => {
     async function getFilms() {
       try {
-        const listFilm = await  getTrendingMovies()
-        
+        const listFilm = await  getTrendingMovies()        
         if (!listFilm.data.results.length) {
           throw new Error("Sory, try later");
-        }
-       
-        setFilms(listFilm.data.results)
-          
+        }       
+        setFilms(listFilm.data.results)          
       } catch (error) {
         console.log(error);
       }
     }
-
     getFilms()    
   })
 
   return (
     <main>
-      {films.length && <MovieList films={films}></MovieList>}
+      {films.length && <MovieList items={films}></MovieList>}
     </main>
   );
 };
-
-export default Home;
