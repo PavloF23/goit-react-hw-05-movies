@@ -8,7 +8,7 @@ export const MovieList = ({ items }) => {
 
   return (
     <List>
-      {films.map(({ id, poster_path, title }) => (
+      {items.map(({ id, poster_path, title }) => (
         <ListItem key={id}>
           <Item to={`/movies/${id}`} state={{ from: location }}>
             <Poster

@@ -42,6 +42,6 @@ export const SearchMovies = ({ onSubmit }) => {
   );
 };
 
-Form.propTypes = {
+SearchMovies.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 }

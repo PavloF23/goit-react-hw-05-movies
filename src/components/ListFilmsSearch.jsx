@@ -1,7 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-const ListFilmsSearch = ({ arraySearch }) => {
+export const ListFilmsSearch = ({ arraySearch }) => {
       const location = useLocation();
   return (
     <ul>{arraySearch.map((film) => (
@@ -22,4 +22,4 @@ ListFilmsSearch.propTypes = {
   })),
 }
 
-export default ListFilmsSearch;
+// export default ListFilmsSearch;
