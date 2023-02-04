@@ -45,8 +45,8 @@ const Cast = () => {
           <img
             width={100} 
             src={profile_path
-                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                    : `https://www.meme-arsenal.com/memes/fefac21eda463aa9a307c7cfdbea1bee.jpg`
+                  ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                  : `https://www.meme-arsenal.com/memes/fefac21eda463aa9a307c7cfdbea1bee.jpg`
                 }
             alt={name}
           />

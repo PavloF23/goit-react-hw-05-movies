@@ -1,25 +1,20 @@
 import { useParams, useLocation, Outlet } from "react-router-dom";
 import { useState, Suspense } from "react";
-// import { useRef } from "react";
-import { useEffect } from "react";
-// import { useMount } from 'react-use';
+import { useMount } from 'react-use';
 import { AiFillCaretLeft } from "react-icons/ai";
 import { Main, ButtonBack, FilmInfo, Title, Description, List, LinkBtn } from './MovieDetails.styled'
 import { getMoviesID } from "../../components/servisApi";
 import defaultPicture from '../../images/default-movie.jpg';
 
-const MovieInfo = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();  
   const [filmId, setFilmId] = useState('');
   const [genre, setGenre] = useState([]);
   const [date, setDate] = useState('');
-  // const [loc, setLoc] = useState('');
-  // const locRef = useRef(location.stete?.from ?? '/');
-  const locRef = location.stete?.from ?? '/';
+  const [loc, setLoc] = useState('');
    
-  // useMount(() => {
-    useEffect(() => {
+  useMount(() => {
     async function getFilm() {
       try {
         const filmInfo = await getMoviesID(movieId)
@@ -39,17 +34,13 @@ const MovieInfo = () => {
       }
     }
     
-    // setLoc(location.state?.from ?? "/")
+    setLoc(location.state?.from ?? "/")
     getFilm()    
-    }
-    , [movieId]
-    )
-    
+    })
+
   return (
     <Main>
-      {/* <ButtonBack to={locRef.current}> */}
-      {/* <ButtonBack to={loc}> */}
-      <ButtonBack to={locRef}>
+      <ButtonBack to={loc}>
         <AiFillCaretLeft />
         <p>Come Back</p>
       </ButtonBack>
@@ -73,18 +64,18 @@ const MovieInfo = () => {
         <p>Additional information</p>
         <List>
           <li>
-            <LinkBtn to='cast' state={{ from: locRef }} filmid={movieId}>Cast</LinkBtn>
+            <LinkBtn to='cast' filmid={movieId}>Cast</LinkBtn>
           </li>
           <li>
             <LinkBtn to="reviews" filmid={movieId}>Reviews</LinkBtn>
           </li>
         </List>
       </div>
-      <Suspense >
+      <Suspense fallback={null}>
         <Outlet/>
       </Suspense>
     </Main>
   );
 };
 
-export default MovieInfo;
+export default MovieDetails;

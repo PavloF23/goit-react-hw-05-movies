@@ -12,6 +12,10 @@ export const Header = styled.header `
         display: flex;
         gap: 15px;
     }
+
+    footer {
+    
+    }
 `;
 
 export const Link = styled(NavLink) `
