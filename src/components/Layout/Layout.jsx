@@ -6,7 +6,7 @@ export const Layout = () => {
   return (
     <>
       <Header>
-        <div>🎞<span>Movie Poster</span></div>
+        <div><span>🎞Movie Poster</span></div>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>
