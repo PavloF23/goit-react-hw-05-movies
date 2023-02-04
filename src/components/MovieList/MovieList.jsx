@@ -9,7 +9,7 @@ const MovieList = ({ items }) => {
     <List>{items.map(({ id, poster_path, title }) => (
       <Item key={id}>
       <LinkItem to={`/movies/${id}`} state={{ from: location }}>
-        <Poster src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        <Poster width={250} src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}`
                 : defaultPicture} alt={title} />
         <MovieTitle>{title}</MovieTitle>
       </LinkItem>
