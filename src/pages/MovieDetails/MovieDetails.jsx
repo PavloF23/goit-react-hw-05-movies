@@ -1,9 +1,11 @@
 import { useParams, useLocation, Outlet } from "react-router-dom";
 import { useState, Suspense } from "react";
+// import { useRef } from "react";
 import { useMount } from 'react-use';
 import { AiFillCaretLeft } from "react-icons/ai";
 import { Main, ButtonBack, FilmInfo, Title, Description, List, LinkBtn } from './MovieDetails.styled'
 import { getMoviesID } from "../../components/servisApi";
+import defaultPicture from '../../images/default-movie.jpg';
 
 const MovieInfo = () => {
   const { movieId } = useParams();
@@ -12,6 +14,7 @@ const MovieInfo = () => {
   const [genre, setGenre] = useState([]);
   const [date, setDate] = useState('');
   const [loc, setLoc] = useState('');
+  // const locRef = useRef(location.stete?.from ?? '/movies');
    
   useMount(() => {
     async function getFilm() {
@@ -33,19 +36,25 @@ const MovieInfo = () => {
       }
     }
     
-    setLoc(location.state?.from ?? "/")
+    setLoc(location.state?.from ?? "/movies")
     getFilm()    
     })
     
   return (
     <Main>
+      {/* <ButtonBack to={locRef.current}> */}
       <ButtonBack to={loc}>
         <AiFillCaretLeft />
         <p>Come Back</p>
       </ButtonBack>
       {filmId && <FilmInfo>
-        {filmId.poster_path && <img width={250} src={`https://image.tmdb.org/t/p/w500${filmId.poster_path}`} alt="" />}
-        {!filmId.poster_path && <img width={250} src={"https://sitysun.ru/wp-content/uploads/oboi-vertikalnye-krasivye_74.jpg"} alt="" />}
+        <img
+            width={250} 
+            src={filmId.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${filmId.poster_path}`
+                    :  defaultPicture}
+            alt={filmId.name}
+          />
         <div>
           <h2>{filmId.original_title} ({date})</h2>
           <Title>Overview</Title>
