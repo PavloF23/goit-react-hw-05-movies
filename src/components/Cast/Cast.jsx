@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useMount } from 'react-use';
-import { getActors } from "./servisApi";
-import Loader from './Loader';
+import { List, Character } from './Cast.styled';
+import { getActors } from "../../components/servisApi";
+import Loader from '../Loader'
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [filmActors, setFilmActors] = useState([]);
   const [isLoading, setIsLoadings] = useState(false);
@@ -34,20 +35,28 @@ export const Cast = () => {
     setIsLoadings(true)
     getFilm()      
   })
-
   return (
     <section>
       {isLoading && <Loader />}
       {error && <h2>{error.message}</h2>}
-      {filmActors.length !== 0 && <ul>
-        {filmActors.map((actor) => (<li key={actor.id}>
-          {actor.profile_path && <img width={100} src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt="" />}
-          {!actor.profile_path && <img width={100} src={"https://www.meme-arsenal.com/memes/fefac21eda463aa9a307c7cfdbea1bee.jpg"} alt="" />}
-          <p>{actor.name}</p>
-          <p>Character: {actor.character}</p>
+      {filmActors.length !== 0 && <List>
+        {filmActors.map(({ id, profile_path, name, character }) => (
+        <li key={id}>
+          <img
+            width={100} 
+            src={profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : `https://www.meme-arsenal.com/memes/fefac21eda463aa9a307c7cfdbea1bee.jpg`
+                }
+            alt={name}
+          />
+          <p>{name}</p>
+          <Character>Character: {character}</Character>
         </li>
         ))}
-      </ul>}
+      </List>}
     </section>
   );
 };
+
+export default Cast;

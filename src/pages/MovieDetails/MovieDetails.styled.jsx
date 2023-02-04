@@ -16,10 +16,12 @@ export const ButtonBack = styled(Link) `
     color: black;
     font-weight: 500;
     margin-bottom: 20px;
+
     :hover {
         color: white;
-        background-color: blue;
+        background-color: orange;
     }
+
     p {
         margin: 0;
     }
@@ -30,6 +32,7 @@ export const FilmInfo = styled.div `
     gap: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid black;
+
     div{
         width: 600px;
     }
@@ -50,13 +53,16 @@ export const List = styled.ul `
     gap: 10px;
     padding: 0;
     list-style: none;
+
 `
 
 export const LinkBtn = styled(Link) `
+
     color: black;
     font-weight: 700;
     padding: 4px 12px;
     border-radius: 5px;
+
     :hover {
         color: blue;
     }

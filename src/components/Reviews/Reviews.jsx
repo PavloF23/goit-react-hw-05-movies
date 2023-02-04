@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useMount } from 'react-use';
 import { getReviews } from "../servisApi";
 import Loader from '../Loader';
-import { Autor } from './Reviews.styled';
+import { Avtor, List } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [filmReviews, setFilmReviews] = useState([]);
   const [isLoading, setIsLoadings] = useState(false);
@@ -40,13 +40,15 @@ export const Reviews = () => {
     <section>
       {isLoading && <Loader />}
       {error && <h2>{error.message}</h2>}
-      {filmReviews.length !== 0 &&<ul>
+      {filmReviews.length !== 0 &&<List>
         {filmReviews.map((review) => (
         <li key={review.id}>
-          <Autor>Autor: {review.author}</Autor>
+          <Avtor>Autor: {review.author}</Avtor>
           <p>{review.content}</p>
         </li>
-      ))}</ul>}
+      ))}</List>}
     </section>
   );
 };
+
+export default Reviews;

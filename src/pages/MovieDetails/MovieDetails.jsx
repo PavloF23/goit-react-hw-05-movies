@@ -5,10 +5,9 @@ import { AiFillCaretLeft } from "react-icons/ai";
 import { Main, ButtonBack, FilmInfo, Title, Description, List, LinkBtn } from './MovieDetails.styled'
 import { getMoviesID } from "../../components/servisApi";
 
-export const MovieDetails = () => {
+const MovieInfo = () => {
   const { movieId } = useParams();
-  const location = useLocation();
-  
+  const location = useLocation();  
   const [filmId, setFilmId] = useState('');
   const [genre, setGenre] = useState([]);
   const [date, setDate] = useState('');
@@ -72,3 +71,5 @@ export const MovieDetails = () => {
     </Main>
   );
 };
+
+export default MovieInfo;

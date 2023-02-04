@@ -1,10 +1,11 @@
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { FormStyle, Input, Button } from "./SearchMovies.styled";
+import { IoSearchOutline } from 'react-icons/io5';
+import { SearchForm, Button, Label, Input } from "./Form.styled";
 
 
-export const SearchMovies = ({ onSubmit }) => {
+const Form = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
 
     const handlChange = (evt) => {
@@ -24,24 +25,27 @@ export const SearchMovies = ({ onSubmit }) => {
   }
    
   return (
-    <FormStyle onSubmit={handlSubmit}>
+    <SearchForm onSubmit={handlSubmit}>
+      <Button type="submit">
+        <IoSearchOutline size={24} />
+        <Label>Search</Label>
+      </Button>
         <Input
-          className="SearchForm-input"
+          // className="SearchForm-input"
           type="text"
           value={query}
           onChange={handlChange}
           autoComplete="off"
           autoFocus
-          placeholder="Search films"
+          placeholder="Search movies"
         />
-        <Button type="submit">
-            Search
-        </Button>
-      </FormStyle>
+      </SearchForm>
       
   );
 };
 
-SearchMovies.propTypes = {
+Form.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 }
+
+export default Form;
