@@ -14,7 +14,9 @@ export const Header = styled.header `
     }
 
     footer {
-    
+        height: 25px;
+        margin-top: 20px; 
+        background-color: gray;
     }
 `;
 
@@ -30,4 +32,12 @@ export const Link = styled(NavLink) `
         color: white;
         background-color: orange;
     }
+`;
+
+export const Footer = styled.footer`
+    height: 25px;
+    margin-top: 20px; 
+    background-color: gray;
+    text-align: end;
+    padding-right: 20px;
 `;

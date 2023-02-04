@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { Header, Link } from './Layout.styled'
+import { Header, Link, Footer } from './Layout.styled'
 
 export const Layout = () => {
   return (
@@ -15,7 +15,7 @@ export const Layout = () => {
       <Suspense fallback={<div>Loading page...</div>}>
         <Outlet/>
       </Suspense>
-      <footer>pavel.fastovets@gmail.com</footer>
+      <Footer>the developer: pavel.fastovets@gmail.com</Footer>
     </>    
   );
 };
