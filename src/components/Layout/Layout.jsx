@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { Header, Link, Footer } from './Layout.styled'
+import { Header, Link, Footer, Logo } from './Layout.styled'
 
 export const Layout = () => {
   return (
     <>
       <Header>
-        <div><span>🎞Movie Poster</span></div>
+        <Logo to="/"><span>🎞Movie Poster</span></Logo>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>

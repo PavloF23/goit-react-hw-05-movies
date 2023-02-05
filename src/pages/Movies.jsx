@@ -11,7 +11,7 @@ import Form from "components/Form/Form";
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchFilm = searchParams.get("query") ?? '';
-  const [searchFilms, setSearchFilms] = useState('');
+  const [searchMovies, setSearchMovies] = useState('');
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoadings] = useState(false);
   const [error, setError] = useState('');
@@ -19,7 +19,7 @@ const Movies = () => {
   const handlSubmit = (query) => {
     const nextParams = query !== "" ? { query } : {};
     setSearchParams(nextParams)
-    setSearchFilms(query)
+    setSearchMovies(query)
     setError('')
   }
   
@@ -51,7 +51,7 @@ const Movies = () => {
   useEffect(() => {
     async function getFilm() {
       try {
-        const searchInfo = await getSearchFilms(searchFilms)
+        const searchInfo = await getSearchFilms(searchMovies)
         
         if (searchInfo.data.results.length !== 0) {
           setItems(searchInfo.data.results)
@@ -70,13 +70,13 @@ const Movies = () => {
       }
     }
 
-    if (searchFilms==='') {
+    if (searchMovies==='') {
       return
     }
 
     setIsLoadings(true)
     getFilm()      
-  }, [searchFilms])
+  }, [searchMovies])
 
   return (
     <main>

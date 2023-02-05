@@ -20,6 +20,17 @@ export const Header = styled.header `
     }
 `;
 
+export const Logo = styled(NavLink) `
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: black;
+
+    &:hover {
+        box-shadow: 3px 3px gray, -1em 0 .4em orange;
+    }
+`;
+
 export const Link = styled(NavLink) `
     padding: 8px 12px;
     border-radius: 5px;
